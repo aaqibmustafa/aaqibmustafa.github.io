@@ -184,7 +184,7 @@ export function Projects() {
           {/* Controls */}
           <button 
             onClick={prev}
-            className="absolute left-1 sm:left-2 md:left-8 lg:left-16 z-30 p-2 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center"
+            className="absolute left-1 sm:left-2 md:left-8 lg:left-16 z-30 p-2 md:p-4 bg-bg-secondary/80 hover:bg-accent-primary hover:text-white text-text-primary rounded-full backdrop-blur-xl border border-text-secondary/20 transition-colors shadow-xl flex items-center justify-center"
             aria-label="Previous project"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
@@ -192,7 +192,7 @@ export function Projects() {
 
           <button 
             onClick={next}
-            className="absolute right-1 sm:right-2 md:right-8 lg:right-16 z-30 p-2 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center"
+            className="absolute right-1 sm:right-2 md:right-8 lg:right-16 z-30 p-2 md:p-4 bg-bg-secondary/80 hover:bg-accent-primary hover:text-white text-text-primary rounded-full backdrop-blur-xl border border-text-secondary/20 transition-colors shadow-xl flex items-center justify-center"
             aria-label="Next project"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
