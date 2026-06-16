@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { ProjectModal, ProjectData } from "../ui/ProjectModal";
@@ -87,8 +87,16 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [activeIndex, setActiveIndex] = useState(1);
 
-  const next = () => setActiveIndex((prev) => Math.min(prev + 1, projectsData.length - 1));
-  const prev = () => setActiveIndex((prev) => Math.max(prev - 1, 0));
+  const next = () => setActiveIndex((prev) => (prev + 1) % projectsData.length);
+  const prev = () => setActiveIndex((prev) => (prev - 1 + projectsData.length) % projectsData.length);
+
+  useEffect(() => {
+    if (selectedProject) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % projectsData.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [selectedProject, activeIndex]);
 
   const swipeConfidenceThreshold = 10000;
   const swipePower = (offset: number, velocity: number) => {
@@ -174,23 +182,21 @@ export function Projects() {
         <div className="relative w-full h-[65vh] min-h-[450px] max-h-[650px] flex items-center justify-center [perspective:1400px] mt-4 md:mt-10">
           
           {/* Controls */}
-          {activeIndex > 0 && (
-            <button 
-              onClick={prev}
-              className="hidden md:flex absolute md:left-8 lg:left-16 z-30 p-3 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] items-center justify-center"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-          )}
+          <button 
+            onClick={prev}
+            className="absolute left-1 sm:left-2 md:left-8 lg:left-16 z-30 p-2 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center"
+            aria-label="Previous project"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
 
-          {activeIndex < projectsData.length - 1 && (
-            <button 
-              onClick={next}
-              className="hidden md:flex absolute md:right-8 lg:right-16 z-30 p-3 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] items-center justify-center"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          )}
+          <button 
+            onClick={next}
+            className="absolute right-1 sm:right-2 md:right-8 lg:right-16 z-30 p-2 md:p-4 bg-bg-secondary/50 hover:bg-accent-primary/80 text-white rounded-full backdrop-blur-xl border border-white/10 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center"
+            aria-label="Next project"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
 
           {projectsData.map((project, index) => {
             const offset = index - activeIndex;
@@ -227,7 +233,7 @@ export function Projects() {
                   if (isActive) setSelectedProject(project);
                   else setActiveIndex(index);
                 }}
-                className={`absolute w-[85%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[800px] h-full bg-bg-secondary/80 backdrop-blur-3xl rounded-3xl overflow-hidden flex flex-col border transition-colors duration-300 ${isActive ? 'border-accent-primary/60 shadow-[0_0_60px_rgba(var(--accent-primary-rgb),0.15)] cursor-grab active:cursor-grabbing' : 'border-text-secondary/10 shadow-2xl cursor-pointer hover:border-text-secondary/30 pointer-events-none md:pointer-events-auto'}`}
+                className={`absolute w-[75%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[800px] h-full bg-bg-secondary/80 backdrop-blur-3xl rounded-3xl overflow-hidden flex flex-col border transition-colors duration-300 ${isActive ? 'border-accent-primary/60 shadow-[0_0_60px_rgba(var(--accent-primary-rgb),0.15)] cursor-grab active:cursor-grabbing' : 'border-text-secondary/10 shadow-2xl cursor-pointer hover:border-text-secondary/30 pointer-events-none md:pointer-events-auto'}`}
                 style={{ transformStyle: "preserve-3d", touchAction: "pan-y" }}
               >
                 {/* Media Section */}
