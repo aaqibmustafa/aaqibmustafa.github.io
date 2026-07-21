@@ -17,7 +17,11 @@ export function Services() {
     },
     {
       title: "Laravel Full-stack",
-      description: "Building real business software, not just basic websites. I have delivered complex, scalable solutions like SalePro POS, Hostel Management System, and Tamimiats completely in Laravel.",
+      description: (
+        <>
+          Building real business software, not just basic websites. I have delivered complex, scalable solutions like SalePro POS, <a href="https://demo.hmbsoftwares.com/hms/" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline">Hostel Management System</a>, and Tamimiats completely in Laravel.
+        </>
+      ),
       icon: <Layers className="w-8 h-8" />
     },
     {

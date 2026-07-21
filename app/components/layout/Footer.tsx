@@ -19,7 +19,7 @@ export function Footer() {
               Aaqib Mustafa.
             </a>
             <p className="mt-2 text-text-secondary text-sm">
-              Backend Developer crafting reliable enterprise solutions.
+              Full Stack Developer crafting reliable enterprise solutions.
             </p>
           </motion.div>
 
