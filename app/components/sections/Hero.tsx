@@ -7,7 +7,7 @@ import { Typewriter } from "../ui/Typewriter";
 
 export function Hero() {
   const roles = [
-    "Backend Developer",
+    "Full Stack Developer",
     "API Architect",
     "Database Optimizer",
     "Systems Integrator"
@@ -31,7 +31,7 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="text-accent-primary font-semibold mb-4 tracking-wide uppercase"
             >
-              Hi, I'm
+              Hi, I&apos;m
             </motion.p>
             
             <motion.h1 
@@ -58,7 +58,7 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="text-text-secondary text-lg mb-10 max-w-lg mx-auto md:mx-0"
             >
-              Backend Developer with 3+ years of experience building scalable, high-performance systems and RESTful APIs using PHP, Laravel, and CodeIgniter.
+              Full Stack Developer with 3+ years of experience building scalable, high-performance systems and RESTful APIs using PHP, Laravel, and CodeIgniter.
             </motion.p>
             
             <motion.div 

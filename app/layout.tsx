@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aaqib Mustafa | Backend Developer",
-  description: "Personal portfolio of Aaqib Mustafa, a Backend Developer specializing in PHP, Laravel, and scalable systems.",
+  title: "Aaqib Mustafa | Full Stack Developer",
+  description: "Personal portfolio of Aaqib Mustafa, a Full Stack Developer specializing in PHP, Laravel, and scalable systems.",
 };
 
 export default function RootLayout({

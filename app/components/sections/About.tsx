@@ -6,7 +6,7 @@ import { Code, Terminal, Database, Server, Briefcase, GraduationCap, Brain, Wren
 export function About() {
   const experiences = [
     {
-      role: "Backend Developer",
+      role: "Full Stack Developer",
       company: "HMB Softwares Pvt. Ltd.",
       location: "Islamabad, PK",
       date: "Sept 2023 - Present",
