@@ -76,7 +76,20 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 </div>
               ) : (
                 <>
-                  <div className="w-full h-full flex items-center justify-center bg-bg-secondary/50 relative overflow-hidden">
+                  <motion.div 
+                    className="w-full h-full flex items-center justify-center bg-bg-secondary/50 relative overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(e, { offset, velocity }) => {
+                      const swipe = Math.abs(offset.x) * velocity.x;
+                      if (swipe < -100 || offset.x < -50) {
+                        handleNext();
+                      } else if (swipe > 100 || offset.x > 50) {
+                        handlePrev();
+                      }
+                    }}
+                  >
                     {/* Blurred background */}
                     <img 
                       src={project.images[currentImageIndex]} 
@@ -84,31 +97,38 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                       className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110 pointer-events-none"
                     />
                     {/* Actual image */}
-                    <img 
-                      src={project.images[currentImageIndex]} 
-                      alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-                      className="absolute inset-0 w-full h-full object-contain p-2 md:p-8 z-10 pointer-events-none"
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={currentImageIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        src={project.images[currentImageIndex]} 
+                        alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                        className="absolute inset-0 w-full h-full object-contain p-2 md:p-8 z-10 pointer-events-none"
+                      />
+                    </AnimatePresence>
                     
                     {/* Image Counter */}
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white z-20 pointer-events-none">
                       {currentImageIndex + 1} / {project.images.length}
                     </div>
-                  </div>
+                  </motion.div>
 
                   {project.images.length > 1 && (
                     <>
                       <button
                         onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                        className="absolute left-4 z-30 p-2 bg-bg-primary/80 hover:bg-bg-primary rounded-full text-text-primary opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md"
+                        className="absolute left-2 md:left-4 z-30 p-2 bg-bg-primary/80 hover:bg-bg-primary rounded-full text-text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity backdrop-blur-md"
                       >
-                        <ChevronLeft className="w-6 h-6" />
+                        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                       </button>
                       <button
                         onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                        className="absolute right-4 z-30 p-2 bg-bg-primary/80 hover:bg-bg-primary rounded-full text-text-primary opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md"
+                        className="absolute right-2 md:right-4 z-30 p-2 bg-bg-primary/80 hover:bg-bg-primary rounded-full text-text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity backdrop-blur-md"
                       >
-                        <ChevronRight className="w-6 h-6" />
+                        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                       </button>
                     </>
                   )}
