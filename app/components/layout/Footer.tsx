@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin, TwitterIcon as Twitter } from "../ui/SocialIcons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, TwitterIcon as Twitter, FiverrIcon as Fiverr, UpworkIcon as Upwork } from "../ui/SocialIcons";
 
 export function Footer() {
   return (
@@ -37,6 +37,14 @@ export function Footer() {
             <a href="https://linkedin.com/in/aaqibmustafa" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent-primary transition-colors">
               <span className="sr-only">LinkedIn</span>
               <Linkedin className="h-6 w-6" />
+            </a>
+            <a href="https://www.fiverr.com/aaqibmustafaa" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent-primary transition-colors">
+              <span className="sr-only">Fiverr</span>
+              <Fiverr className="h-6 w-6" />
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01de82a6d1afca2a6a" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent-primary transition-colors">
+              <span className="sr-only">Upwork</span>
+              <Upwork className="h-6 w-6" />
             </a>
             <a href="mailto:aaqibmustafaa@gmail.com" className="text-text-secondary hover:text-accent-primary transition-colors">
               <span className="sr-only">Email</span>
