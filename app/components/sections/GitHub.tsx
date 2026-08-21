@@ -10,6 +10,8 @@ const YEARS = [2026, 2025, 2024, 2023, 2022];
 
 const ACTIVITY_DATA: Record<number, any[]> = {
   2026: [
+    { month: "August", year: 2026, commits: 62, reposCount: 3, prs: 14 },
+    { month: "July", year: 2026, commits: 84, reposCount: 2, reposCreated: 1, prs: 22 },
     { month: "June", year: 2026, commits: 41, reposCount: 4, prs: 21 },
     { month: "May", year: 2026, commits: 131, reposCount: 4, reposCreated: 2, prs: 31 },
     { month: "April", year: 2026, commits: 91, reposCount: 4, reposCreated: 1, prs: 33 },
@@ -52,8 +54,8 @@ export function GitHub() {
     for (let i = 0; i < 52; i++) {
       const days = [];
       for (let j = 0; j < 7; j++) {
-        // Stop generating data after mid-June for 2026 to match reality
-        if (year === 2026 && i > 23) {
+        // Stop generating data after mid-August for 2026 to match reality
+        if (year === 2026 && i > 33) {
           days.push(0);
           continue;
         }
@@ -80,7 +82,7 @@ export function GitHub() {
       weeks.push(days);
     }
 
-    if (year === 2026) totalCommits = 386; 
+    if (year === 2026) totalCommits = 532; 
     if (year === 2025) totalCommits = 600;
     if (year === 2024) totalCommits = 432;
     if (year === 2023) totalCommits = 210;
@@ -144,7 +146,7 @@ export function GitHub() {
               </h3>
               <div className="flex items-center gap-2 text-sm text-text-secondary">
                 <CalendarDays className="w-4 h-4" />
-                <span>Jan {selectedYear} - {selectedYear === 2026 ? 'Jun' : 'Dec'} {selectedYear}</span>
+                <span>Jan {selectedYear} - {selectedYear === 2026 ? 'Aug' : 'Dec'} {selectedYear}</span>
               </div>
             </div>
 
