@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Aaqib Mustafa, a Full Stack Developer specializing in PHP, Laravel, and scalable systems.",
 };
 
+import { ChatWidget } from "./components/ui/ChatWidget";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,6 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>
