@@ -7,41 +7,41 @@ export function Services() {
   const services = [
     {
       title: "Backend API Development",
-      description: "My most proven skill. I have architected and deployed robust REST APIs for 4 different mobile applications across iOS and Android, serving as the core infrastructure for thousands of users.",
+      description: "My most proven skill. I architect and deploy robust REST APIs for web and mobile platforms across iOS and Android, serving as the core infrastructure for thousands of active business users.",
       icon: <Server className="w-8 h-8" />
     },
     {
-      title: "Full-stack PHP",
-      description: "Capable of owning entire web platforms solo—from database architecture to UI implementation. Proven through production-grade systems like CosmoChat and HMB Connect.",
+      title: "Full-stack PHP & Node.js",
+      description: "Capable of owning entire web platforms solo—from database architecture to UI implementation. Proven through production systems like CosmoChat, Red Star Technologies website, and HMB Connect.",
       icon: <Code2 className="w-8 h-8" />
     },
     {
-      title: "Laravel Full-stack",
+      title: "Modular POS & ERP Systems",
       description: (
         <>
-          Building real business software, not just basic websites. I have delivered complex, scalable solutions like SalePro POS, <a href="https://demo.hmbsoftwares.com/hms/" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline">Hostel Management System</a>, and Tamimiats completely in Laravel.
+          Building mission-critical business software with modular architecture. I engineered <strong className="text-text-primary">Owner POS</strong>, SalePro POS, <a href="https://demo.hmbsoftwares.com/hms/" target="_blank" rel="noopener noreferrer" className="text-accent-primary hover:underline">Hostel Management System</a>, and Tamimi ATS in Laravel with pluggable modules.
         </>
       ),
       icon: <Layers className="w-8 h-8" />
     },
     {
-      title: "AI Integration",
-      description: "Specialized in connecting modern AI services into production applications. I successfully integrated OpenAI into CosmoChat and HealMindBody to deliver highly valuable, intelligent features.",
+      title: "AI Integration & SaaS",
+      description: "Specialized in connecting modern AI services into production applications. I successfully integrated OpenAI and LLM workflows into CosmoChat (70+ tools, 80+ languages) and HealMindBody to deliver intelligent features.",
       icon: <Brain className="w-8 h-8" />
     },
     {
       title: "Mobile API Engineering",
-      description: "A dedicated specialization in cross-platform backend support. I currently power 6 live mobile products (3 distinct apps × 2 platforms) with secure, highly-available APIs.",
+      description: "A dedicated specialization in cross-platform backend support. I currently power 6 live mobile products (3 distinct apps × 2 platforms) with secure, highly-available versioned APIs.",
       icon: <Smartphone className="w-8 h-8" />
     },
     {
-      title: "Enterprise System Design",
-      description: "Proven ability to design architecture beyond simple apps. I engineered HMS to support 500+ hostels and a complex 3-tier hierarchy (Master/Branch Admin) with granular role-based access.",
+      title: "Enterprise Multi-Warehouse Architecture",
+      description: "Proven ability to design architecture beyond simple apps. I engineered multi-warehouse stock management with automated transfers, low-stock alerts, and 3-tier hierarchy with granular role-based access control.",
       icon: <Building2 className="w-8 h-8" />
     },
     {
-      title: "API Testing & Debugging",
-      description: "Rigorously test, validate, and debug REST APIs across every project before integration. I utilize Postman and Insomnia to strictly verify endpoints, auth flows, error handling, and response contracts.",
+      title: "API Testing, Security & CI/CD Automation",
+      description: "Rigorously test, validate, and secure APIs with OAuth2, JWT, RBAC, Postman, and Insomnia. Automate builds and continuous deployment pipelines using GitHub Actions CI/CD to ensure rock-solid production releases.",
       icon: <ShieldCheck className="w-8 h-8" />,
       fullWidth: true
     }
