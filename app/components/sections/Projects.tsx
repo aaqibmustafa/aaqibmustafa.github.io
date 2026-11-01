@@ -1,14 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { ProjectModal, ProjectData } from "../ui/ProjectModal";
+
+const CATEGORIES = ["All", "POS & ERP", "AI & SaaS", "Web & Mobile"];
 
 const projectsData: ProjectData[] = [
   {
     id: "proj-owner-pos",
     title: "OWNER POS — MODULAR POINT-OF-SALE & ERP",
+    category: "POS & ERP",
     description: "Lead developer for Owner POS, an enterprise-grade modular point-of-sale and business management platform with 5+ integrated modules: sales, purchase, inventory, warehouse, e-commerce, and reporting. Engineered multi-warehouse stock management with automated inter-warehouse transfers, branch-level stock controls, real-time low-stock alerts, role-based access control (RBAC), and an add-on architecture allowing clients to toggle modules dynamically without touching core code.",
     tech: ["Laravel", "PHP", "MySQL", "Node.js", "Express.js", "PostgreSQL", "REST APIs", "RBAC", "E-commerce"],
     images: ["/project_image/POS-1.png", "/project_image/POS-2.png", "/project_image/POS-3.png"],
@@ -17,6 +20,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-redstar",
     title: "RED STAR TECHNOLOGIES — CORPORATE WEBSITE",
+    category: "Web & Mobile",
     description: "Official web platform for Red Star Technologies (redstartechs.com). Showcases digital software solutions, enterprise products, technical capabilities, and client portfolios with a modern responsive UI, dynamic project galleries, fast interactive performance, and seamless user experiences.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs", "Responsive Design"],
     images: ["/project_image/RedStarWebsite.png", "/project_image/RedStarWebsite1.png", "/project_image/RedStarWebsite2.png"],
@@ -25,6 +29,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-1",
     title: "COSMOCHAT — AI CONTENT PLATFORM",
+    category: "AI & SaaS",
     description: "A production-grade AI-powered content generation platform supporting 70+ use-cases — articles, images, ad copy, product descriptions, and more — with a full subscription billing engine, credit wallet, multi-language output (80+ languages), and voice-tone selection.",
     tech: ["PHP", "MySQL", "OpenAI API", "Stripe", "HTML/CSS", "JavaScript", "REST APIs"],
     images: ["/project_image/cosmochat1.png", "/project_image/cosmochat2.png", "/project_image/cosmochat3.png"],
@@ -33,6 +38,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-8",
     title: "HMS — HOSTEL MANAGEMENT SYSTEM",
+    category: "POS & ERP",
     description: "A full-featured, production-ready Hostel Management System built entirely in Laravel supporting 500+ hostels and 10,000+ students. Follows a three-tier hierarchy with Master Admin, Branch Admins, and self-operated management. Handles rooms, beds, tenants, booking, billing, and financials.",
     tech: ["Laravel", "PHP", "MySQL", "Blade Templates", "JavaScript", "Bootstrap", "REST API", "Role-based Auth"],
     images: ["/project_image/HMS-1.png", "/project_image/HMS-2.png", "/project_image/HMS-3.png", "/project_image/HMS-4.png"],
@@ -41,6 +47,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-3",
     title: "HMB CONNECT — WELLNESS PLATFORM",
+    category: "Web & Mobile",
     description: "A US-based wellness and clinic management platform that helps therapists, coaches, and patients stay on track with mental and physical health journeys. Designed and built the entire backend API layer covering authentication, appointment flows, task management, and practitioner-patient communication.",
     tech: ["PHP", "REST API", "MySQL", "JWT Auth", "JSON"],
     images: ["/project_image/HMBconnect-1.png", "/project_image/HMBconnect-2.png", "/project_image/HMBconnect-3.png", "/project_image/HMBconnect-4.png"],
@@ -49,6 +56,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-2",
     title: "COSMOCHAT — MOBILE APP",
+    category: "AI & SaaS",
     description: "Built all server-side REST APIs powering the CosmoChat mobile experience — enabling users to generate content, manage their accounts, and consume subscription credits on the go. Every feature of the web platform was exposed via secure, versioned API endpoints consumed by both iOS and Android apps.",
     tech: ["PHP", "REST API", "JSON", "JWT Auth", "MySQL", "OpenAI API"],
     images: ["/project_image/cosmochat-mob1.jpg", "/project_image/cosmochat-mob2.jpg", "/project_image/cosmochat-mob3.jpg"],
@@ -58,6 +66,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-9",
     title: "TAMIMIATS — GENERAL CONTRACTING CORPORATE WEBSITE",
+    category: "Web & Mobile",
     description: "Designed and developed the complete corporate web presence for Tamimiats, a leading Saudi-based general contracting company. Showcases mega-projects, publishes tenders, manages job postings, and processes vendor registrations — all powered by a custom Laravel CMS.",
     tech: ["Laravel", "PHP", "MySQL", "Blade Templates", "JavaScript", "Bootstrap", "Custom CMS"],
     images: ["/project_image/tamimi1.jpg", "/project_image/tamimi2.jpg", "/project_image/tamimi3.jpg"],
@@ -66,6 +75,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-6",
     title: "HEALMINDBODY — MOBILE APP",
+    category: "AI & SaaS",
     description: "Built all server-side REST APIs exclusively consumed by the HealMindBody iOS and Android apps. Handles AI prompt routing, session persistence, and push notification delivery at scale. Users can generate AI-powered meditations on the go.",
     tech: ["PHP", "REST API", "MySQL", "OpenAI API", "JWT Auth", "Push Notifications", "JSON"],
     images: ["/project_image/healmb-Mob-1.jpg", "/project_image/healmb-Mob-2.jpg", "/project_image/healmb-Mob-3.jpg"],
@@ -75,6 +85,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-7",
     title: "SALEPRO — POINT OF SALE SYSTEM",
+    category: "POS & ERP",
     description: "SalePro is a fully custom, production-ready Point of Sale system built entirely in Laravel. Handled the complete project — from database architecture and business logic to UI and admin dashboard. Handles real retail operations, inventory, suppliers, purchasing, and reporting.",
     tech: ["Laravel", "PHP", "MySQL", "Blade Templates", "JavaScript", "Bootstrap", "REST API"],
     images: ["/project_image/POS-1.png", "/project_image/POS-2.png", "/project_image/POS-3.png"],
@@ -83,6 +94,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-5",
     title: "HEALMINDBODY — WEBSITE",
+    category: "AI & SaaS",
     description: "HealMindBody is a live AI-powered wellness platform at healmb.com serving thousands of users. Built the complete backend API layer covering user authentication, AI-generated meditation sessions, a meditation library, and wellness tracking.",
     tech: ["PHP", "REST API", "MySQL", "OpenAI API", "JWT Auth", "JSON"],
     images: ["/project_image/healmindbody1.png", "/project_image/healmindbody2.png", "/project_image/healmindbody3.png"],
@@ -91,6 +103,7 @@ const projectsData: ProjectData[] = [
   {
     id: "proj-4",
     title: "HEALMB CONNECT — MOBILE APP",
+    category: "Web & Mobile",
     description: "Engineered all backend REST APIs for the HealMB mobile app available on the App Store and Google Play. The app allows patients to manage their wellness routines, connect with practitioners, book sessions, and track healing tasks. Handled all data flow, push alerts, and secure JWT authentication.",
     tech: ["PHP", "REST API", "MySQL", "JWT Auth", "Push Notifications", "JSON"],
     images: ["/project_image/hmbconnect-Mob1.jpg", "/project_image/hmbconnect-Mob2.jpg", "/project_image/hmbconnect-Mob3.jpg", "/project_image/hmbconnect-Mob4.jpg"],
@@ -100,26 +113,32 @@ const projectsData: ProjectData[] = [
 ];
 
 export function Projects() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const next = () => setActiveIndex((prev) => (prev + 1) % projectsData.length);
-  const prev = () => setActiveIndex((prev) => (prev - 1 + projectsData.length) % projectsData.length);
+  const displayProjects = useMemo(() => {
+    if (selectedCategory === "All") return projectsData;
+    return projectsData.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory]);
+
+  const next = () => setActiveIndex((prev) => (prev + 1) % displayProjects.length);
+  const prev = () => setActiveIndex((prev) => (prev - 1 + displayProjects.length) % displayProjects.length);
 
   useEffect(() => {
     if (selectedProject) return;
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % projectsData.length);
+      setActiveIndex((prev) => (prev + 1) % displayProjects.length);
     }, 10000);
     return () => clearInterval(timer);
-  }, [selectedProject, activeIndex]);
+  }, [selectedProject, activeIndex, displayProjects.length]);
 
   const swipeConfidenceThreshold = 10000;
   const swipePower = (offset: number, velocity: number) => {
     return Math.abs(offset) * velocity;
   };
 
-    const variants = {
+  const variants = {
     active: {
       x: 0,
       z: 0,
@@ -185,17 +204,37 @@ export function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">Featured Projects</h2>
           <div className="w-20 h-1 bg-accent-primary mx-auto rounded-full" />
-          <p className="mt-6 text-text-secondary max-w-2xl mx-auto text-lg">
-            Swipe or click through my production-ready systems. Click the center card for full details.
+          <p className="mt-4 text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
+            Production systems delivered across POS, ERP, AI SaaS, and cloud applications.
           </p>
+
+          {/* Interactive Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setSelectedCategory(cat);
+                  setActiveIndex(0);
+                }}
+                className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+                  selectedCategory === cat
+                    ? "bg-accent-primary text-white shadow-md shadow-accent-primary/20 scale-105"
+                    : "bg-bg-secondary text-text-secondary hover:text-text-primary hover:bg-bg-secondary/80 border border-text-secondary/10"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Carousel Container */}
-        <div className="relative w-full h-[65vh] min-h-[450px] max-h-[650px] flex items-center justify-center [perspective:1400px] mt-4 md:mt-10">
+        <div className="relative w-full h-[65vh] min-h-[450px] max-h-[650px] flex items-center justify-center [perspective:1400px] mt-2 md:mt-8">
           
           {/* Controls */}
           <button 
@@ -214,7 +253,7 @@ export function Projects() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </button>
 
-          {projectsData.map((project, index) => {
+          {displayProjects.map((project, index) => {
             const offset = index - activeIndex;
             let animateState = "hiddenRight";
             if (offset === 0) animateState = "active";
@@ -275,6 +314,15 @@ export function Projects() {
                     <div className="w-full h-full bg-gradient-to-br from-bg-primary to-bg-secondary opacity-50" />
                   )}
                   
+                  {/* Category Pill Tag */}
+                  {project.category && (
+                    <div className="absolute top-4 left-4 z-20 pointer-events-none">
+                      <div className="bg-bg-primary/80 backdrop-blur-md px-3 py-1 rounded-full border border-text-secondary/20 text-[10px] sm:text-xs font-bold text-accent-primary shadow-sm">
+                        {project.category}
+                      </div>
+                    </div>
+                  )}
+
                   {isActive && (
                     <div className="absolute top-4 right-4 z-20 pointer-events-none">
                       <div className="bg-bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-text-secondary/20 flex items-center gap-2 text-xs font-medium text-text-primary shadow-sm">
@@ -313,7 +361,7 @@ export function Projects() {
 
         {/* Pagination Dots */}
         <div className="flex justify-center items-center gap-3 mt-12">
-          {projectsData.map((_, index) => (
+          {displayProjects.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
