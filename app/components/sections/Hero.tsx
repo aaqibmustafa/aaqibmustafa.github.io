@@ -8,9 +8,10 @@ import { Typewriter } from "../ui/Typewriter";
 export function Hero() {
   const roles = [
     "Full Stack Developer",
-    "API Architect",
-    "Database Optimizer",
-    "Systems Integrator"
+    "API & Systems Architect",
+    "Laravel & Node.js Specialist",
+    "Database & Performance Optimizer",
+    "AI SaaS & Enterprise Engineer"
   ];
 
   return (
@@ -58,7 +59,7 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="text-text-secondary text-lg mb-10 max-w-lg mx-auto md:mx-0"
             >
-              Full Stack Developer with 3+ years of experience building scalable, high-performance systems and RESTful APIs using PHP, Laravel, and CodeIgniter.
+              Full Stack Developer with 4 years of experience building and deploying scalable web applications for business use. Delivered 6+ production systems across POS, ERP, e-commerce, inventory, warehouse and AI SaaS using Laravel, PHP, Node.js, and modern AI development workflows.
             </motion.p>
             
             <motion.div 
@@ -75,7 +76,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
               <a
-                href="/resume/Aaqib_resume.pdf"
+                href="/resume/Aaqib_Mustafa_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-bg-secondary text-text-primary font-medium border border-text-secondary/20 hover:border-text-secondary/50 transition-all hover:scale-105"
