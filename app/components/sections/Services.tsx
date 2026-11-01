@@ -1,10 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, Code2, Layers, Brain, Smartphone, Building2, ShieldCheck } from "lucide-react";
+import { Server, Code2, Layers, Brain, Smartphone, Building2, ShieldCheck, Cloud } from "lucide-react";
+
+interface ServiceItem {
+  title: string;
+  description: React.ReactNode;
+  icon: React.ReactNode;
+  fullWidth?: boolean;
+}
 
 export function Services() {
-  const services = [
+  const services: ServiceItem[] = [
     {
       title: "Backend API Development",
       description: "My most proven skill. I architect and deploy robust REST APIs for web and mobile platforms across iOS and Android, serving as the core infrastructure for thousands of active business users.",
@@ -30,6 +37,11 @@ export function Services() {
       icon: <Brain className="w-8 h-8" />
     },
     {
+      title: "AWS Cloud Infrastructure (EC2, RDS, S3, SES)",
+      description: "Hands-on engineering and administration of core AWS cloud environments: provisioning compute on AWS EC2, hosting managed relational databases on Amazon RDS (MySQL/PostgreSQL), configuring secure asset and media storage via AWS S3, and integrating Amazon SES for high-deliverability transactional email systems.",
+      icon: <Cloud className="w-8 h-8" />
+    },
+    {
       title: "Mobile API Engineering",
       description: "A dedicated specialization in cross-platform backend support. I currently power 6 live mobile products (3 distinct apps × 2 platforms) with secure, highly-available versioned APIs.",
       icon: <Smartphone className="w-8 h-8" />
@@ -42,8 +54,7 @@ export function Services() {
     {
       title: "API Testing, Security & CI/CD Automation",
       description: "Rigorously test, validate, and secure APIs with OAuth2, JWT, RBAC, Postman, and Insomnia. Automate builds and continuous deployment pipelines using GitHub Actions CI/CD to ensure rock-solid production releases.",
-      icon: <ShieldCheck className="w-8 h-8" />,
-      fullWidth: true
+      icon: <ShieldCheck className="w-8 h-8" />
     }
   ];
 
