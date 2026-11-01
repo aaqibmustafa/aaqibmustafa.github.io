@@ -10,6 +10,9 @@ const YEARS = [2026, 2025, 2024, 2023, 2022];
 
 const ACTIVITY_DATA: Record<number, any[]> = {
   2026: [
+    { month: "November", year: 2026, commits: 18, reposCount: 2, prs: 4 },
+    { month: "October", year: 2026, commits: 112, reposCount: 3, reposCreated: 1, prs: 28 },
+    { month: "September", year: 2026, commits: 98, reposCount: 4, reposCreated: 1, prs: 24 },
     { month: "August", year: 2026, commits: 62, reposCount: 3, prs: 14 },
     { month: "July", year: 2026, commits: 84, reposCount: 2, reposCreated: 1, prs: 22 },
     { month: "June", year: 2026, commits: 41, reposCount: 4, prs: 21 },
@@ -49,13 +52,13 @@ export function GitHub() {
     const weeks = [];
     let totalCommits = 0;
 
-    const activityFactor = year === 2026 ? 0.4 : year === 2025 ? 0.7 : year === 2024 ? 0.5 : 0.2;
+    const activityFactor = year === 2026 ? 0.45 : year === 2025 ? 0.7 : year === 2024 ? 0.5 : 0.2;
 
     for (let i = 0; i < 52; i++) {
       const days = [];
       for (let j = 0; j < 7; j++) {
-        // Stop generating data after mid-August for 2026 to match reality
-        if (year === 2026 && i > 33) {
+        // Stop generating data after early November for 2026 to match reality
+        if (year === 2026 && i > 44) {
           days.push(0);
           continue;
         }
@@ -82,7 +85,7 @@ export function GitHub() {
       weeks.push(days);
     }
 
-    if (year === 2026) totalCommits = 532; 
+    if (year === 2026) totalCommits = 760; 
     if (year === 2025) totalCommits = 600;
     if (year === 2024) totalCommits = 432;
     if (year === 2023) totalCommits = 210;
@@ -95,10 +98,11 @@ export function GitHub() {
   const currentActivity = ACTIVITY_DATA[selectedYear] || [];
 
   const mockRepos = [
+    { name: "redstartechs/owner-pos", desc: "Modular point-of-sale platform with multi-warehouse inventory and e-commerce sync.", stars: 42, forks: 11, lang: "Laravel" },
+    { name: "redstartechs/redstar-web", desc: "Corporate web platform built with Next.js, TypeScript, and modern responsive design.", stars: 26, forks: 5, lang: "Next.js" },
     { name: "healmb1/HMB", desc: "Enterprise application and core backend services for HMB Softwares.", stars: 45, forks: 8, lang: "Codeignter" },
     { name: "aaqibmustafa/nexus-api", desc: "A scalable and secure REST API architecture for modern applications.", stars: 32, forks: 5, lang: "Laravel" },
     { name: "healmb1/cosmochat", desc: "Backend infrastructure for the Cosmochat AI-powered platform.", stars: 28, forks: 12, lang: "Laravel" },
-    { name: "hmbsoftwarespvt/hostaguest", desc: "Hostel management system backend with complete property management features.", stars: 15, forks: 3, lang: "Codeignter" },
   ];
 
   return (
@@ -146,7 +150,7 @@ export function GitHub() {
               </h3>
               <div className="flex items-center gap-2 text-sm text-text-secondary">
                 <CalendarDays className="w-4 h-4" />
-                <span>Jan {selectedYear} - {selectedYear === 2026 ? 'Aug' : 'Dec'} {selectedYear}</span>
+                <span>Jan {selectedYear} - {selectedYear === 2026 ? 'Nov' : 'Dec'} {selectedYear}</span>
               </div>
             </div>
 
