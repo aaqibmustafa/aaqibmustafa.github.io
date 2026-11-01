@@ -7,6 +7,22 @@ import { ProjectModal, ProjectData } from "../ui/ProjectModal";
 
 const projectsData: ProjectData[] = [
   {
+    id: "proj-owner-pos",
+    title: "OWNER POS — MODULAR POINT-OF-SALE & ERP",
+    description: "Lead developer for Owner POS, an enterprise-grade modular point-of-sale and business management platform with 5+ integrated modules: sales, purchase, inventory, warehouse, e-commerce, and reporting. Engineered multi-warehouse stock management with automated inter-warehouse transfers, branch-level stock controls, real-time low-stock alerts, role-based access control (RBAC), and an add-on architecture allowing clients to toggle modules dynamically without touching core code.",
+    tech: ["Laravel", "PHP", "MySQL", "Node.js", "Express.js", "PostgreSQL", "REST APIs", "RBAC", "E-commerce"],
+    images: ["/project_image/POS-1.png", "/project_image/POS-2.png", "/project_image/POS-3.png"],
+    liveUrl: "https://demo.hmbsoftwares.com/login"
+  },
+  {
+    id: "proj-redstar",
+    title: "RED STAR TECHNOLOGIES — CORPORATE WEBSITE",
+    description: "Official web platform for Red Star Technologies (redstartechs.com). Showcases digital software solutions, enterprise products, technical capabilities, and client portfolios with a modern responsive UI, dynamic project galleries, fast interactive performance, and seamless user experiences.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs", "Responsive Design"],
+    images: ["/project_image/RedStarWebsite.png", "/project_image/RedStarWebsite1.png", "/project_image/RedStarWebsite2.png"],
+    liveUrl: "https://redstartechs.com/"
+  },
+  {
     id: "proj-1",
     title: "COSMOCHAT — AI CONTENT PLATFORM",
     description: "A production-grade AI-powered content generation platform supporting 70+ use-cases — articles, images, ad copy, product descriptions, and more — with a full subscription billing engine, credit wallet, multi-language output (80+ languages), and voice-tone selection.",
