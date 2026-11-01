@@ -66,11 +66,27 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <a
+                href="/resume/Aaqib_Mustafa_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-primary/10 text-accent-primary border border-accent-primary/30 hover:bg-accent-primary hover:text-white transition-all shadow-sm inline-flex items-center"
+              >
+                Resume
+              </a>
               <ThemeToggle />
             </div>
           </div>
           
           <div className="md:hidden flex items-center gap-4">
+            <a
+              href="/resume/Aaqib_Mustafa_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1 rounded-full text-xs font-semibold bg-accent-primary/10 text-accent-primary border border-accent-primary/30"
+            >
+              CV
+            </a>
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -101,6 +117,14 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <a
+                href="/resume/Aaqib_Mustafa_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-primary font-semibold block px-3 py-2 rounded-md text-base hover:bg-bg-secondary"
+              >
+                Download Resume (PDF)
+              </a>
             </div>
           </motion.div>
         )}
