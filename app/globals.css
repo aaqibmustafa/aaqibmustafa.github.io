@@ -1,38 +1,42 @@
 @import "tailwindcss";
 
 :root {
+  /* Titanium Porcelain Light */
   --bg-primary: #ffffff;
-  --bg-secondary: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --accent-primary: #2563eb; /* Blue 600 */
-  --accent-secondary: #3b82f6; /* Blue 500 */
+  --bg-secondary: #f4f6f8;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-primary: #059669; /* Emerald 600 */
+  --accent-secondary: #10b981; /* Emerald 500 */
+  --accent-primary-rgb: 5, 150, 105;
   
-  /* GitHub Heatmap Light */
+  /* GitHub Heatmap Light (Emerald) */
   --gh-level-0: #ebedf0;
-  --gh-level-1: #93c5fd; /* blue-300 */
-  --gh-level-2: #60a5fa; /* blue-400 */
-  --gh-level-3: #2563eb; /* blue-600 */
-  --gh-level-4: #1e3a8a; /* blue-900 */
+  --gh-level-1: #a7f3d0; /* emerald-200 */
+  --gh-level-2: #6ee7b7; /* emerald-300 */
+  --gh-level-3: #10b981; /* emerald-500 */
+  --gh-level-4: #047857; /* emerald-700 */
 
   --background: var(--bg-primary);
   --foreground: var(--text-primary);
 }
 
 .dark {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --accent-primary: #3b82f6; /* Blue 500 */
-  --accent-secondary: #60a5fa; /* Blue 400 */
+  /* Titanium Void Dark */
+  --bg-primary: #080a0e; /* Deep Obsidian Void */
+  --bg-secondary: #11151c; /* Refined Dark Titanium */
+  --text-primary: #f1f5f9; /* Pure Platinum */
+  --text-secondary: #94a3b8; /* Muted Titanium Slate */
+  --accent-primary: #10b981; /* Precision Emerald 500 */
+  --accent-secondary: #34d399; /* Mint Emerald 400 */
+  --accent-primary-rgb: 16, 185, 129;
 
-  /* GitHub Heatmap Dark */
+  /* GitHub Heatmap Dark (Emerald) */
   --gh-level-0: #161b22;
-  --gh-level-1: #1e3a8a; /* blue-900 */
-  --gh-level-2: #2563eb; /* blue-600 */
-  --gh-level-3: #60a5fa; /* blue-400 */
-  --gh-level-4: #93c5fd; /* blue-300 */
+  --gh-level-1: #064e3b; /* emerald-900 */
+  --gh-level-2: #047857; /* emerald-700 */
+  --gh-level-3: #10b981; /* emerald-500 */
+  --gh-level-4: #34d399; /* emerald-400 */
 
   --background: var(--bg-primary);
   --foreground: var(--text-primary);
@@ -63,8 +67,28 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
 }
