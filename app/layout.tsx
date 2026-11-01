@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aaqib Mustafa | Full Stack Developer",
-  description: "Personal portfolio of Aaqib Mustafa, a Full Stack Developer specializing in PHP, Laravel, and scalable systems.",
+  title: "Aaqib Mustafa | Full Stack Developer & Systems Architect",
+  description: "Personal portfolio of Aaqib Mustafa, a Full Stack Developer with 4 years of experience specializing in Laravel, PHP, Node.js, POS, ERP, and AI SaaS systems.",
 };
 
 import { ChatWidget } from "./components/ui/ChatWidget";
