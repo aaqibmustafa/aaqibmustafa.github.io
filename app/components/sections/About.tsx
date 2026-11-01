@@ -22,7 +22,7 @@ export function About() {
   const stats = [
     { value: "4+", label: "Years Experience", detail: "Full Stack & Systems" },
     { value: "6+", label: "Production Systems", detail: "POS, ERP & AI SaaS" },
-    { value: "80+", label: "Languages Handled", detail: "Global Platform Scale" },
+    { value: "99.9%", label: "System Reliability", detail: "High-Availability Uptime" },
     { value: "3.8", label: "CGPA Distinction", detail: "BS Computer Science" }
   ];
 
@@ -38,7 +38,7 @@ export function About() {
         "Engineered multi-warehouse inventory automation with inter-branch transfers, branch-level access control, and real-time low-stock alerts.",
         "Built Node.js and Express.js REST APIs backed by PostgreSQL and unified e-commerce syncing for real-time inventory and orders."
       ],
-      tech: ["Laravel", "PHP", "Node.js", "Express.js", "PostgreSQL", "REST APIs", "RBAC", "E-Commerce", "AI Workflows"]
+      tech: ["Laravel", "PHP", "Node.js", "Express.js", "PostgreSQL", "AWS S3/RDS", "REST APIs", "RBAC", "E-Commerce", "AI Workflows"]
     },
     {
       role: "Full Stack Developer",
@@ -49,9 +49,9 @@ export function About() {
       points: [
         "Delivered full-lifecycle ERP, CRM, POS, and HRM business platforms using Laravel, PHP, CodeIgniter, JavaScript, and Blade.",
         "Engineered backend infrastructure for Cosmochat.ai (70+ AI tools in 80+ languages) and HealMindBody multi-channel platform (Web, iOS, Android).",
-        "Secured enterprise APIs with OAuth2, JWT, and RBAC, while automating deployment pipelines with GitHub Actions CI/CD and AWS."
+        "Secured enterprise APIs with OAuth2, JWT, and RBAC, while provisioning cloud infrastructure and CI/CD pipelines across AWS (EC2, S3, RDS, SES) and GitHub Actions."
       ],
-      tech: ["Laravel", "PHP", "MySQL", "MongoDB", "REST APIs", "AWS S3/SES", "GitHub Actions", "Blade"]
+      tech: ["Laravel", "PHP", "MySQL", "MongoDB", "REST APIs", "AWS (EC2, S3, RDS, SES)", "GitHub Actions", "Blade"]
     },
     {
       role: "Junior PHP Developer",
@@ -86,7 +86,7 @@ export function About() {
     {
       name: "Cloud, Security & DevOps",
       icon: <ShieldCheck className="w-4 h-4 text-accent-secondary" />,
-      skills: ["OAuth2", "JWT", "RBAC", "AWS (S3, SES)", "GitHub Actions", "CI/CD Automation"]
+      skills: ["AWS EC2", "AWS S3", "AWS RDS", "AWS SES", "OAuth2", "JWT", "RBAC", "GitHub Actions CI/CD", "Linux / cPanel"]
     },
     {
       name: "Business Systems",
@@ -173,7 +173,7 @@ export function About() {
                 Full Stack Developer with <strong className="text-text-primary font-semibold">4 years of experience</strong> architecting and shipping mission-critical business systems across POS, ERP, inventory, and AI SaaS.
               </p>
               <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
-                Specialized in <strong className="text-text-primary font-semibold">Laravel, PHP, and Node.js</strong>, designing secure REST APIs (OAuth2, JWT, RBAC), PostgreSQL/MySQL database optimization, and AWS CI/CD pipelines. I leverage modern AI developer workflows (Claude, Cursor, Codex, Antigravity) to deliver robust, production-ready code with velocity.
+                Specialized in <strong className="text-text-primary font-semibold">Laravel, PHP, and Node.js</strong>, designing secure REST APIs (OAuth2, JWT, RBAC), PostgreSQL/MySQL database optimization, and cloud architecture across <strong className="text-text-primary font-semibold">AWS (EC2, RDS, S3, SES)</strong> with automated CI/CD pipelines. I leverage modern AI developer workflows (Claude, Cursor, Codex, Antigravity) to deliver robust, production-ready code with velocity.
               </p>
             </div>
 
