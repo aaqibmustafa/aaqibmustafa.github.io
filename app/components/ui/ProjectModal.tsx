@@ -11,6 +11,7 @@ export interface ProjectData {
   description: string;
   tech: string[];
   images: string[];
+  category?: string;
   video?: string;
   githubUrl?: string;
   liveUrl?: string;
